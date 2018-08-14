@@ -68,9 +68,9 @@ class NowPlayingViewController: UIViewController {
         self.title = currentStation.name
         
         // Set UI
-        albumImageView.image = currentTrack.artworkImage
-        stationDescLabel.text = currentStation.desc
-        stationDescLabel.isHidden = currentTrack.artworkLoaded
+        //albumImageView.image = currentTrack.artworkImage
+        //stationDescLabel.text = currentStation.desc
+        //stationDescLabel.isHidden = currentTrack.artworkLoaded
         
         // Check for station change
         newStation ? stationDidChange() : playerStateDidChange(radioPlayer.state, animate: false)
@@ -109,6 +109,9 @@ class NowPlayingViewController: UIViewController {
     
     func stationDidChange() {
         radioPlayer.radioURL = URL(string: currentStation.streamURL)
+        albumImageView.image = currentTrack.artworkImage
+        stationDescLabel.text = currentStation.desc
+        stationDescLabel.isHidden = currentTrack.artworkLoaded
         title = currentStation.name
     }
     
